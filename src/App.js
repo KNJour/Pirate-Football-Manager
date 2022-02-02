@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Router } from '@reach/router';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Home from './views/Home'
+import Navbar from './components/Nav'
+import Add from './views/Add'
+import Update from './views/Update'
+import Single from './views/Single'
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Router>
+        <Home path="/"/>
+        <Home path="/pirates"/>
+        <Add path="/create"/>
+        <Single path="/pirates/:_id"/>
+        <Update path="/pirates/update/:_id"/>
+      </Router>
     </div>
   );
 }
